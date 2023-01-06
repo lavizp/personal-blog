@@ -18,7 +18,7 @@ const navItems = [
 ]
 export default function Navbar() {
   return (
-    <nav className="min-w-full h-16 flex justify-between items-center pl-10 pr-10 " >
+    <nav className="min-w-full h-20 flex justify-between items-center pl-12 pr-12 " >
       <div className="flex items-center">
         <span className="mr-2">L</span>
         <h3 className="font-bold">Laviz</h3>
