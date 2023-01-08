@@ -3,7 +3,7 @@ const image = "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixli
 
 export default function Article() {
   return (
-    <div className='h-[350px] w-[380px]  flex flex-col'>
+    <div className='h-[350px] w-[350px]  flex flex-col'>
         <div className='w-full h-full overflow-hidden pb-4'>
             <img src={image} className="w-full h-full rounded-xl "></img>
         </div>
