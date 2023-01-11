@@ -1,4 +1,4 @@
-export default interface Article{
+export default interface ArticleType{
     id: string,
     title: string,
     image: string,

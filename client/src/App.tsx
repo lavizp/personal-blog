@@ -1,14 +1,9 @@
-import Navbar from "./Components/Navbar"
-import MainArticle from "./Components/MainArticle"
-import RecentBlogs from "./Components/RecentBlogs"
-import Footer from "./Components/Footer"
+
+import HomePage from "./Pages/HomePage"
 function App() {
   return (
     <>
-      <Navbar/>
-      <MainArticle/>
-      <RecentBlogs/>
-      <Footer/>
+      <HomePage/>
     </>
   )
 }

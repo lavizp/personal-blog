@@ -25,7 +25,7 @@ export default function Navbar() {
       </div>
       <div>
         <ul className="flex gap-8">
-          {navItems.map(item=><li className="font-bold"><a href={item.link}>{item.title}</a></li>)}
+          {navItems.map(item=><li className="font-bold" key={item.title}><a href={item.link}>{item.title}</a></li>)}
 
 
         </ul>
