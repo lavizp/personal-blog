@@ -1,6 +1,9 @@
+import React from "react"
 import ArticleType from "../Interfaces/Article"
-
-export default function Article(article: ArticleType) {
+interface Props{
+  article: ArticleType
+}
+const Article: React.FC<Props>=({article}) =>{
   return (
     <div className='h-[350px] w-[350px]  flex flex-col'>
         <div className='w-full h-full overflow-hidden pb-4'>
@@ -11,3 +14,5 @@ export default function Article(article: ArticleType) {
     </div>
   )
 }
+
+export default Article
