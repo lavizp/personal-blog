@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Article from "./Article"
 import * as api from "../api/index"
 import ArticleType from "../Interfaces/Article"
+
 interface ArticlesType{
   article: ArticleType[]
 }
@@ -15,6 +16,7 @@ export default function RecentBlogs() {
     getArticles();
 
 },[])
+
   return (
     <div className='w-full h-auto p-24 pt-10'>
         <h3 className="text-xl font-bold">Recent Blog Posts</h3>
