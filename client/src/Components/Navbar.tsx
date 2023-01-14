@@ -1,19 +1,19 @@
 const navItems = [
   {
     title: "Home",
-    link: "/home"
+    link: "/"
+  },
+  {
+    title: "Blogs",
+    link: "/articles"
   },
   {
     title: "About",
     link: "/about"
   },
   {
-    title: "Settings",
-    link: "/settings"
-  },
-  {
-    title: "Contact",
-    link: "/contact"
+    title: "Write",
+    link: "/submit"
   },
 ]
 export default function Navbar() {

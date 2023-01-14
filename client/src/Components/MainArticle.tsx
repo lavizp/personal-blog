@@ -20,8 +20,6 @@ const image = "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixli
         <div className='w-4/5 absolute bottom-28 left-40 flex flex-col gap-5'>
             <h3 className=' text-white text-3xl'>Featured</h3>
             <h3 className=' text-white text-5xl font-bold mb-[-5px]'>{article?.title}</h3>
-            <h3 className=' text-white text-5xl font-bold'>Advice From Untitled Founder, Frankie</h3>
-
             <h3 className=' text-white w-4/5'>{article?.main}</h3>
 
         </div>
