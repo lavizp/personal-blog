@@ -22,7 +22,7 @@ const image = "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixli
             <h3 className=' text-white text-5xl font-bold mb-[-5px]'>{article?.title}</h3>
             <h3 className=' text-white text-5xl font-bold'>Advice From Untitled Founder, Frankie</h3>
 
-            <h3 className=' text-white w-4/5'>In many cases, images are loaded from the server dynamically. Therefore, we do not know whether the color scheme of the image is light or dark. To make sure the text is always clear and easy to read, we’ll add a high-contrast background color with a certain amount of transparency around it.</h3>
+            <h3 className=' text-white w-4/5'>{article?.main}</h3>
 
         </div>
         <div className='absolute bottom-60 right-24'>
