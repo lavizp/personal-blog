@@ -14,5 +14,8 @@
   "devDependencies": {
     "nodemon": "^2.0.20",
     "ts-node": "^10.9.1"
+  },
+  "scripts": {
+    "dev": "nodemon ./src/index.ts"
   }
 }

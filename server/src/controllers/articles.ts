@@ -1,4 +1,5 @@
-import  express  from "express";
+import  express,{Request,Response}  from "express";
+
 const dummy = [
     {
         id: 0,
@@ -19,6 +20,9 @@ const dummy = [
         main: "string"
     }
 ]
-export const getArticles = async(req: any,res: any) =>{
+export const getArticles = async(req: Request,res: Response) =>{
     res.status(200).json(dummy)
+}
+export const getMainArticle = async(req: Request, res: Response)=>{
+    res.status(200).send(dummy[0])
 }
