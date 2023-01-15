@@ -23,6 +23,10 @@ const dummy = [
 export const getArticles = async(req: Request,res: Response) =>{
     res.status(200).json(dummy)
 }
+export const getArticle = async(req: Request,res: Response) =>{
+    const id:string = req.params.id;
+    res.status(200).json(dummy)
+}
 export const getMainArticle = async(req: Request, res: Response)=>{
     res.status(200).send(dummy[0])
 }
