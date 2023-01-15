@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const articlesUrl = "http://localhost:8000/articles/"
+const articlesUrl = "http://localhost:8000/"
 
 
-export const getArticles = ()=> axios.get(articlesUrl);
-export const getMainArticle = ()=> axios.get(articlesUrl+ "main");
-export const getArticle = (id: string)=> axios.post(articlesUrl+ "main");
+export const getArticles = ()=> axios.get(articlesUrl + "articles");
+export const getMainArticle = ()=> axios.get(articlesUrl+ "main/article");
+export const getArticle = (id: string)=> axios.get(articlesUrl+ "articles/"+id);
 
 

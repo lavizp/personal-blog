@@ -25,7 +25,16 @@ export const getArticles = async(req: Request,res: Response) =>{
 }
 export const getArticle = async(req: Request,res: Response) =>{
     const id:string = req.params.id;
-    res.status(200).json(dummy)
+    try{
+        let article = dummy.filter((item)=>{
+            return item.id.toString() === id;
+        })
+        console.log(article)
+        res.status(200).send(article)
+
+    }catch(e){
+        console.log(e)
+    }
 }
 export const getMainArticle = async(req: Request, res: Response)=>{
     res.status(200).send(dummy[0])

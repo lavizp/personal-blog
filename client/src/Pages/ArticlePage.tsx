@@ -5,16 +5,19 @@ import * as api from "../api/index"
 const ArticlePage=()=> {
   const [article, setArticle] = useState<ArticleType>();
   const {id} = useParams();
-  
+
   useEffect(()=>{
     const getArticle =async () => {
-        let {data} = await api.getArticles()
+      if(id){
+
+        let {data} = await api.getArticle("1")
         setArticle(data[0])
+      }
     }
     getArticle()
   },[])
   return (
-    <div>ArticlePage</div>
+    <div>{article?.main}</div>
   )
 }
 
