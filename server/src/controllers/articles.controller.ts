@@ -1,4 +1,4 @@
-import  express,{Request,Response}  from "express";
+import {Request,Response}  from "express";
 import { ArticleDocument } from "models/Article";
 const dummy:ArticleDocument[] = [
     {
