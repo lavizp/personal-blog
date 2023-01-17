@@ -18,6 +18,7 @@ app.listen(port, async() => {
 
   articleRouter(app);
 
+  
 });
 app.get('/', (req: Request, res: Response) => {
   res.send('Welcome to the server');
