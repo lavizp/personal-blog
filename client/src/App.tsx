@@ -6,7 +6,7 @@ function App() {
     <Routes>
       <Route path ="/" element={<HomePage/>}/>
       <Route path ="/article/:id" element={<ArticlePage/>}/>
-
+        
     </Routes>
   )
 }
