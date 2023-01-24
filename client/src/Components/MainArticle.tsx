@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ArticleType from "../Interfaces/Article"
 import * as api from "../api/index"
+import { Link } from 'react-router-dom';
  const MainArticle:React.FC=()=> {
   const [article, setArticle] = useState<ArticleType>();
 
@@ -12,6 +13,8 @@ import * as api from "../api/index"
       getMain();
   },[])
   return (
+    <Link to = {"/article/" + article?.id}>
+
     <div className=' w-full p-10 relative pt-0'>
         <div className='w-full rounded-xl h-[700px] bg-secondary'>
             <img src={article?.image} className="w-full rounded-xl h-full object-cover opacity-50"></img>
@@ -26,6 +29,7 @@ import * as api from "../api/index"
             <h2 className='text-9xl text-white'>3</h2>
         </div>
     </div>
+    </Link>
   )
 }
 export default MainArticle;
