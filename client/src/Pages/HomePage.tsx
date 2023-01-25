@@ -6,6 +6,7 @@ import Footer from "../Components/Footer"
 
 export default function HomePage() {
 
+
   return (
     <>
     <Navbar/>

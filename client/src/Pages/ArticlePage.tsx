@@ -4,24 +4,40 @@ import { useEffect, useState } from "react";
 import * as api from "../api/index"
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import ArticleNotFound from "../Components/ArticleNotFound";
 const ArticlePage=()=> {
   const [article, setArticle] = useState<ArticleType>();
   const {id} = useParams();
-
+  const [isLoading, setLoading] = useState(true);
   useEffect(()=>{
     const getArticle =async () => {
       if(id){
-
+        // const delay = (ms: any) => new Promise(res => setTimeout(res, ms))
+        // await delay(5000);
         let {data} = await api.getArticle(id)
         setArticle(data[0])
+        setLoading(false);
       }
     }
     getArticle()
   },[])
+
+
+
+    if(!article){
+      return (
+          <>
+            <Navbar/>
+            <ArticleNotFound/>
+
+          </>
+        )
+    }
   return (
     <>
       
       <Navbar/>
+      
       <div className=' w-full p-10 pt-5'>
         <h1 className="font-bold text-5xl pb-5">{article?.title}</h1>
         <div className='w-full rounded-xl h-[700px] bg-secondary'>
