@@ -1,10 +1,12 @@
 import mongoose from "mongoose";
-
+import AuthorModel from "./Author";
+import { AuthorDocument } from "./Author";
 export interface ArticleDocument{
     id: string,
     title: string,
     main: string,
-    image: string
+    image: string,
+    author: AuthorDocument
 }
 
 const ArticleSchema = new mongoose.Schema({
@@ -18,6 +20,10 @@ const ArticleSchema = new mongoose.Schema({
     },
     image: {
         type: String,
+        require: true
+    },
+    author: {
+        type: AuthorModel,
         require: true
     }
 })
