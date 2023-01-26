@@ -3,6 +3,8 @@ import HomePage from "./Pages/HomePage"
 import ArticlePage from './Pages/ArticlePage';
 import ArticlesPage from './Pages/ArticlesPage';
 import AboutPage from './Pages/AboutPage';
+import WritePage from './Pages/WritePage';
+
 function App() {
   return (
     <Routes>
@@ -10,6 +12,7 @@ function App() {
       <Route path ="/article/:id" element={<ArticlePage/>}/>
       <Route path ="/articles" element={<ArticlesPage/>}/>
       <Route path ="/about" element={<AboutPage/>}/>
+      <Route path ="/submit" element={<WritePage/>}/>
 
 
         
