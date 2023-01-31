@@ -15,7 +15,7 @@ const ArticlePage=()=> {
         // const delay = (ms: any) => new Promise(res => setTimeout(res, ms))
         // await delay(5000);
         let {data} = await api.getArticle(id)
-        setArticle(data[0])
+        setArticle(data)
         setLoading(false);
       }
     }

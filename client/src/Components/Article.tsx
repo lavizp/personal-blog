@@ -6,7 +6,7 @@ interface Props{
 }
 const Article: React.FC<Props>=({article}) =>{
   return (
-    <Link to={"/article/"+ article.id}>
+    <Link to={"/article/"+ article._id}>
 
     <div className='h-[350px] w-[350px]  flex flex-col'>
         <div className='w-full h-full overflow-hidden pb-4'>

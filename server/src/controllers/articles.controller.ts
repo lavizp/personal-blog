@@ -50,12 +50,9 @@ export const getArticles = async(req: Request,res: Response) =>{
     res.status(200).json(data)
 }
 export const getArticle = async(req: Request,res: Response) =>{
-    const id:string = req.params.id;
+    const reqId:string = req.params.id;
     try{
-        let article = dummy.filter((item)=>{
-            return item.id.toString() === id;
-        })
-        console.log(article)
+        let article = await ArticleModel.findById(reqId)
         res.status(200).send(article)
 
     }catch(e){
