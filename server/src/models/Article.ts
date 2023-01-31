@@ -23,9 +23,9 @@ const ArticleSchema = new mongoose.Schema({
         require: true
     },
     author: {
-        type: AuthorModel,
+        type: AuthorModel.schema,
         require: true
     }
 })
-let ArticleModel = mongoose.model("Tasks", ArticleSchema);
+let ArticleModel = mongoose.model("Article", ArticleSchema);
 export default ArticleModel;

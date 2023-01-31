@@ -25,5 +25,5 @@ const AuhorSchema = new mongoose.Schema({
         require: true
     }
 })
-let AuthorModel = mongoose.model("Tasks", AuhorSchema);
+let AuthorModel = mongoose.model("Author", AuhorSchema);
 export default AuthorModel;

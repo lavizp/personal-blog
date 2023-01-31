@@ -1,5 +1,8 @@
 import {Request,Response}  from "express";
-import { ArticleDocument } from "models/Article";
+import { ArticleDocument } from "../models/Article";
+
+import mongoose from "mongoose";
+import ArticleModel from "../models/Article"
 const dummy:ArticleDocument[] = [
     {
         id: "0",
@@ -42,7 +45,9 @@ const dummy:ArticleDocument[] = [
     }
 ]
 export const getArticles = async(req: Request,res: Response) =>{
-    res.status(200).json(dummy)
+    let data = await ArticleModel.find({});
+
+    res.status(200).json(data)
 }
 export const getArticle = async(req: Request,res: Response) =>{
     const id:string = req.params.id;
@@ -59,4 +64,20 @@ export const getArticle = async(req: Request,res: Response) =>{
 }
 export const getMainArticle = async(req: Request, res: Response)=>{
     res.status(200).send(dummy[0])
+}
+
+export const writeArticle = async(req:Request, res: Response)=>{
+    
+    try{
+        const article: ArticleDocument = req.body;
+        console.log(article);
+        const newArticle = new ArticleModel(article);
+        await newArticle.save();
+        res.status(200).json(newArticle)
+
+    }catch(e){
+        res.status(404).send(e)
+
+    }
+
 }
