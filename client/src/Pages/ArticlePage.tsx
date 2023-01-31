@@ -12,8 +12,6 @@ const ArticlePage=()=> {
   useEffect(()=>{
     const getArticle =async () => {
       if(id){
-        // const delay = (ms: any) => new Promise(res => setTimeout(res, ms))
-        // await delay(5000);
         let {data} = await api.getArticle(id)
         setArticle(data)
         setLoading(false);
@@ -28,7 +26,9 @@ const ArticlePage=()=> {
       return (
           <>
             <Navbar/>
-            <ArticleNotFound/>
+
+            { isLoading? <ArticleNotFound/> : <h1>Loading...</h1>}
+
 
           </>
         )
