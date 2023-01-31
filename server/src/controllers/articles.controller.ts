@@ -69,9 +69,9 @@ export const getMainArticle = async(req: Request, res: Response)=>{
 export const writeArticle = async(req:Request, res: Response)=>{
     
     try{
-        const article: ArticleDocument = req.body;
-        console.log(article);
-        const newArticle = new ArticleModel(article);
+        const body = req.body;
+        console.log(body);
+        const newArticle = new ArticleModel(body);
         await newArticle.save();
         res.status(200).json(newArticle)
 
