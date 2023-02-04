@@ -6,5 +6,5 @@ export const getArticles = ()=> axios.get(articlesUrl + "articles");
 export const getMainArticle = ()=> axios.get(articlesUrl+ "main/article");
 export const getArticle = (id: string)=> axios.get(articlesUrl+ "articles/"+id);
 
-export const writeArticle = (garticle: ArticleType) => axios.post(articlesUrl+"writeArticle");
+export const writeArticle = (garticle: any) => axios.post(articlesUrl+"writeArticle",garticle);
 

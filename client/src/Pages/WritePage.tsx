@@ -8,7 +8,6 @@ import { articleValidator } from '../Validators/article'
 
 function WritePage() {
   const [article, setArticle] = useState({
-    _id: "",
     title: "",
     image: "",
     main: "",
@@ -19,11 +18,14 @@ function WritePage() {
   }
 }
 )
-  const submitHandler = (e: any) =>{
-    
-    if(!articleValidator(article))
+  const submitHandler = async(e: any) =>{
+    e.preventDefault();
+    if(!articleValidator({...article, _id: ""})){
+      console.log("Didnt Validete")
       return;
-      api.writeArticle(article);
+    }
+      const {data} = await api.writeArticle(article);
+      console.log(data)
   }
   return (
     <>
@@ -40,7 +42,7 @@ function WritePage() {
           <input  placeholder="Author Image" className=" shadow appearance-none  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-10 mb-5" onChange={e=>setArticle({...article, author: {...article.author, image: e.target.value}})}></input>
           <input  placeholder="Author Website" className=" shadow appearance-none  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-10" onChange={e=>setArticle({...article, author: {...article.author, link: e.target.value}})}></input>
 
-          <button className='p-2 rounded-lg border-2 w-auto pl-4 pr-4 mt-10' onClick={e=>submitHandler()}>Submit</button>
+          <button className='p-2 rounded-lg border-2 w-auto pl-4 pr-4 mt-10' onClick={e=>submitHandler(e)}>Submit</button>
         </div>
         <Footer/>
 
