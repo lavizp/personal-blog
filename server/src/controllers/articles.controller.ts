@@ -60,7 +60,9 @@ export const getArticle = async(req: Request,res: Response) =>{
     }
 }
 export const getMainArticle = async(req: Request, res: Response)=>{
-    res.status(200).send(dummy[0])
+    let data = await ArticleModel.find({});
+
+    res.status(200).json(data[0])
 }
 
 export const writeArticle = async(req:Request, res: Response)=>{

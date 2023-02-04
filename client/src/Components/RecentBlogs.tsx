@@ -11,7 +11,8 @@ export default function RecentBlogs() {
   useEffect(()=>{
     async function getArticles() {
         const {data} = await api.getArticles();
-        setArticles(data);
+        setArticles(data.slice(1,9));
+
     }
     getArticles();
 
@@ -21,7 +22,7 @@ export default function RecentBlogs() {
     <div className='w-full h-auto p-24 pt-10'>
         <h3 className="text-xl font-bold">Recent Blog Posts</h3>
         <div className="flex justify-center flex-wrap items-center gap-3">
-          {articles?.map((item: ArticleType)=><Article article={item} key={item.id}/>)}
+          {articles?.map((item: ArticleType)=><Article article={item} key={item._id}/>)}
         </div>
     </div>
   )
