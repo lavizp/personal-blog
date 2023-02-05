@@ -47,7 +47,7 @@ const dummy:ArticleDocument[] = [
 export const getArticles = async(req: Request,res: Response) =>{
     let data = await ArticleModel.find({});
 
-    res.status(200).json(data)
+    res.status(200).json(data.slice(0,data.length- 1))
 }
 export const getArticle = async(req: Request,res: Response) =>{
     const reqId:string = req.params.id;
@@ -62,7 +62,7 @@ export const getArticle = async(req: Request,res: Response) =>{
 export const getMainArticle = async(req: Request, res: Response)=>{
     let data = await ArticleModel.find({});
 
-    res.status(200).json(data[0])
+    res.status(200).json(data[(data.length - 1)])
 }
 
 export const writeArticle = async(req:Request, res: Response)=>{

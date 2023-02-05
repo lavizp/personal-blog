@@ -24,7 +24,7 @@ export default function ArticlesPage() {
     <div className='w-full h-auto p-24 pt-10'>
         <h3 className="text-xl font-bold mb-2">All my Articles:</h3>
         <div className="flex justify-center flex-wrap items-center gap-3">
-          {articles?.map((item: ArticleType)=><Article article={item} key={item.id}/>)}
+          {articles?.map((item: ArticleType)=><Article article={item} key={item._id}/>)}
         </div>
     </div>
     <Footer/>

@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
 import * as api from "../api/index"
-import ArticleType from '../Interfaces/Article'
+import { useNavigate } from 'react-router-dom'
 import { articleValidator } from '../Validators/article'
 
 
 function WritePage() {
+  const navigate = useNavigate()
   const [article, setArticle] = useState({
     title: "",
     image: "",
@@ -21,11 +22,12 @@ function WritePage() {
   const submitHandler = async(e: any) =>{
     e.preventDefault();
     if(!articleValidator({...article, _id: ""})){
-      console.log("Didnt Validete")
+      window.alert("Fill In All Details")
       return;
+
     }
       const {data} = await api.writeArticle(article);
-      console.log(data)
+      navigate("/")
   }
   return (
     <>
