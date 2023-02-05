@@ -42,10 +42,9 @@ export const writeArticle = async(req:Request, res: Response)=>{
 export const searchArticles =async (req: Request, res: Response) => {
     try{
         const parameter: string = req.params.title;
-        console.log(parameter)
         let data = await ArticleModel.find({});
         let searchedData = data.filter((item)=>
-            item.title?.includes(parameter)
+            item.title?.toLowerCase().includes(parameter.toLowerCase())
         )
         res.status(200).json(searchedData)
     }catch(e){

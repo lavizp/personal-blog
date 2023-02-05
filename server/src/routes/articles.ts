@@ -6,7 +6,7 @@ const router =(app: Express)=>{
     app.get("/articles/:id", getArticle)
     app.get("/main/article", getMainArticle)
     app.post("/writeArticle", writeArticle)
-    app.get("/search", searchArticles)
+    app.get("/search/:title", searchArticles)
 
 }
 
