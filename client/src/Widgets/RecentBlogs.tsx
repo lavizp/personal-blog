@@ -2,34 +2,24 @@ import { useEffect, useState } from "react"
 import Article from "../Components/Article"
 import * as api from "../api/index"
 import ArticleType from "../Interfaces/Article"
-import Navbar from "../Components/Navbar"
-import Footer from "../Components/Footer"
-
 import ArticleList from "../Components/ArticleList"
-interface ArticlesType{
-  article: ArticleType[]
-}
-export default function ArticlesPage() {
+
+export default function RecentBlogs() {
   const [articles, setArticles] = useState<ArticleType[]>([])
   useEffect(()=>{
     async function getArticles() {
         const {data} = await api.getArticles();
-        setArticles(data);
+        setArticles(data.slice(1,9));
+
     }
     getArticles();
 
 },[])
 
   return (
-    <>
-    <Navbar/>
     <div className='w-full h-auto p-24 pt-10'>
-        <h3 className="text-xl font-bold mb-2">All my Articles:</h3>
-        <div className="flex justify-center flex-wrap items-center gap-3">
-          <ArticleList articles={articles}/>
-        </div>
+        <h3 className="text-xl font-bold">Recent Blog Posts</h3>
+        <ArticleList articles={articles}/>
     </div>
-    <Footer/>
-    </>
   )
 }

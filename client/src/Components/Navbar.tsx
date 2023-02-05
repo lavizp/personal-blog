@@ -1,3 +1,5 @@
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 const navItems = [
   {
     title: "Home",
@@ -17,6 +19,17 @@ const navItems = [
   },
 ]
 export default function Navbar() {
+  const navigate = useNavigate()
+  const [searchText, setSearchText] = useState("")
+
+  const searchHandler = (e: any) =>{
+    e.preventDefault();
+    if(searchText.length <=0 )
+    {
+      return;
+    }
+    navigate("/search/"+ searchText)
+  }
   return (
     <nav className="min-w-full h-20 flex justify-between items-center pl-12 pr-12 " >
       <div className="flex items-center">
@@ -30,7 +43,12 @@ export default function Navbar() {
 
         </ul>
       </div>
-      <button className="bg-secondary text-white p-3 rounded-xl font-bold" > Get Started</button>
+      <div className="flex">
+        <input type="search" id="default-search" className="block w-full p-4 pl-10 text-sm text-gray-900 border border-white rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Search Articles" required onChange={(e)=>setSearchText(e.target.value)}/>
+        <div className=" inset-y-0 left-0 flex items-center pl-3 ">
+            <button onClick={(e)=>searchHandler(e)}>asd</button>
+        </div>
+    </div>
 
     </nav>
   )

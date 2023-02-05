@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from "../Components/Navbar"
-import MainArticle from "../Components/MainArticle"
-import RecentBlogs from "../Components/RecentBlogs"
+import MainArticle from '../Widgets/MainArticle'
+import RecentBlogs from "../Widgets/RecentBlogs"
 import Footer from "../Components/Footer"
 
 export default function HomePage() {

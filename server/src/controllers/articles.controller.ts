@@ -5,7 +5,7 @@ import ArticleModel from "../models/Article"
 export const getArticles = async(req: Request,res: Response) =>{
     let data = await ArticleModel.find({});
 
-    res.status(200).json(data.slice(0,data.length- 1))
+    res.status(200).json(data)
 }
 export const getArticle = async(req: Request,res: Response) =>{
     const reqId:string = req.params.id;
