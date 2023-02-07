@@ -43,7 +43,7 @@ const ArticlePage=()=> {
         <div className='w-full rounded-xl h-[700px] bg-secondary'>
             <img src={article?.image} className="w-full rounded-xl h-full object-cover opacity-50"></img>
         </div>
-        <h5 className="pt-5 text-lg">{article?.main}</h5>
+        <h5 className="pt-5 text-lg" dangerouslySetInnerHTML={{__html: article.main}}></h5>
     </div>
         <Footer/>
     </>

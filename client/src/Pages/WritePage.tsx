@@ -5,6 +5,9 @@ import * as api from "../api/index"
 import { useNavigate } from 'react-router-dom'
 import { articleValidator } from '../Validators/article'
 
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
 
 function WritePage() {
   const navigate = useNavigate()
@@ -38,7 +41,8 @@ function WritePage() {
 
           <input type="text" placeholder="Ttile" className="shadow appearance-none  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-5 " onChange={e=>setArticle({...article, title: e.target.value})}></input>
           <input type="text" placeholder="Image Link" className="shadow appearance-none  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-5 " onChange={e=>setArticle({...article, image: e.target.value})}></input>
-          <textarea  placeholder="Description" className=" shadow appearance-none  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-96" onChange={e=>setArticle({...article, main: e.target.value})}></textarea>
+          <h2 className='py-2 px-3'>Description:</h2>
+          <ReactQuill  placeholder="Description" className=" shadow appearance-none  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-96 mb-10" onChange={e=>setArticle({...article, main: e})}></ReactQuill>
           <h2 className='py-2 px-3 mt-4 mb-10 text-2xl'>About The Author:</h2>
           <input  placeholder="Author Name" className=" shadow appearance-none  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-10 mb-5" onChange={e=>setArticle({...article, author: {...article.author, name: e.target.value}})}></input>
           <input  placeholder="Author Image" className=" shadow appearance-none  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-10 mb-5" onChange={e=>setArticle({...article, author: {...article.author, image: e.target.value}})}></input>
