@@ -9,7 +9,8 @@ export default function RecentBlogs() {
   useEffect(()=>{
     async function getArticles() {
         const {data} = await api.getArticles();
-        setArticles(data.slice(1,9));
+        const reversedData = data.reverse()
+        setArticles(reversedData.slice(1,9));
 
     }
     getArticles();
