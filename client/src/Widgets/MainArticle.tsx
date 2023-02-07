@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ArticleType from "../Interfaces/Article"
 import * as api from "../api/index"
 import { Link } from 'react-router-dom';
+import {TfiArrowCircleRight} from "react-icons/tfi"
  const MainArticle:React.FC=()=> {
   const [article, setArticle] = useState<ArticleType>();
 
@@ -13,7 +14,7 @@ import { Link } from 'react-router-dom';
       getMain();
   },[])
   return (
-    <Link to = {"/article/" + article?._id}>
+    
 
     <div className=' w-full p-10 relative pt-0'>
         <div className='w-full rounded-xl h-[700px] bg-secondary'>
@@ -26,10 +27,9 @@ import { Link } from 'react-router-dom';
 
         </div>
         <div className='absolute bottom-60 right-24'>
-            <h2 className='text-9xl text-white'>3</h2>
+        <Link to = {"/article/" + article?._id}><h2 className='text-7xl text-white'><TfiArrowCircleRight/></h2></Link>
         </div>
     </div>
-    </Link>
   )
 }
 export default MainArticle;

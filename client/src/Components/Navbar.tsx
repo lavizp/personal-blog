@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import {AiOutlineSearch} from "react-icons/ai"
 const navItems = [
   {
     title: "Home",
@@ -44,9 +45,9 @@ export default function Navbar() {
         </ul>
       </div>
       <div className="flex">
-        <input type="search" id="default-search" className="block w-full p-4 pl-10 text-sm text-gray-900 border border-white rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Search Articles" required onChange={(e)=>setSearchText(e.target.value)}/>
+        <input type="search" id="default-search" className="block w-full p-4 pl-10 text-sm text-gray-900 border border-white rounded-lg focus:ring-offset-bubble-gum focus:border-b-secondary " placeholder="Search Articles" required onChange={(e)=>setSearchText(e.target.value)}/>
         <div className=" inset-y-0 left-0 flex items-center pl-3 ">
-            <button onClick={(e)=>searchHandler(e)}>asd</button>
+            <button onClick={(e)=>searchHandler(e)}><AiOutlineSearch/></button>
         </div>
     </div>
 
