@@ -22,6 +22,11 @@ const ArticleSchema = new mongoose.Schema({
         type: String,
         require: true
     },
+    isvalidated: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
     author: {
         type: AuthorModel.schema,
         require: true
