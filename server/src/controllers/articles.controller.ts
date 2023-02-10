@@ -2,7 +2,7 @@ import {Request,Response}  from "express";
 
 import ArticleModel from "../models/Article"
 
-import { getValidatedArticles } from "../services/articles.service";
+import { getValidatedArticles, getSingleArticle } from "../services/articles.service";
 
 export const getArticles = async(req: Request,res: Response) =>{
     let data = await getValidatedArticles();
@@ -12,7 +12,7 @@ export const getArticles = async(req: Request,res: Response) =>{
 export const getArticle = async(req: Request,res: Response) =>{
     const reqId:string = req.params.id;
     try{
-        let article = await ArticleModel.findById(reqId)
+        let article = await getSingleArticle(reqId);
         res.status(200).send(article)
 
     }catch(e){

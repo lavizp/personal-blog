@@ -3,7 +3,8 @@ import dotenv from 'dotenv';
 import cors from "cors"
 import connect from './utils/connect';
 
-import articleRouter from "./routes/articles"
+import articleRouter from "./routes/articles.route"
+import adminRouter from "./routes/admin.route"
 dotenv.config();
 
 

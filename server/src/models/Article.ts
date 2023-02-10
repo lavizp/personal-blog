@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import AuthorModel from "./Author";
 import { AuthorDocument } from "./Author";
 export interface ArticleDocument{
+    isvalidated: boolean,
     id: string,
     title: string,
     main: string,
