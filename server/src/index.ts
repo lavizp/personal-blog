@@ -20,6 +20,7 @@ app.listen(port, async() => {
 
 
   articleRouter(app);
+  adminRouter(app);
 
   
 });

@@ -17,12 +17,37 @@ export const getUnvalidatedArticlesAdmin = async(req: Request, res: Response)=>{
 
 export const validateArticle = async(req: Request, res: Response) =>{
     let articleId: string = req.params.id;
-    let article = await getSingleArticle(articleId);
-    if(!article) {
-        res.status(404).send("Milena");
-        return;
+    console.log(articleId)
+    try{
+        let article = await getSingleArticle(articleId);
+        if(!article){
+            return;
+        }
+        article.isvalidated = true;
+        const newArticle = await article.save();
+        res.status(404).json(newArticle)
+
+    }catch(e){
+        console.log(e)
     }
-    article.isvalidated = true;
-    const newArticle = await article.save();
-    res.status(404).json(newArticle)
+
+
+}
+export const unValidateArticle = async(req: Request, res: Response) =>{
+    let articleId: string = req.params.id;
+    console.log(articleId)
+    try{
+        let article = await getSingleArticle(articleId);
+        if(!article){
+            return;
+        }
+        article.isvalidated = false;
+        const newArticle = await article.save();
+        res.status(404).json(newArticle)
+
+    }catch(e){
+        console.log(e)
+    }
+
+
 }
