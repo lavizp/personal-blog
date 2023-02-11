@@ -1,25 +1,15 @@
-import { Route,Routes } from 'react-router-dom';
-import HomePage from "./Pages/HomePage"
-import ArticlePage from './Pages/ArticlePage';
-import ArticlesPage from './Pages/ArticlesPage';
-import AboutPage from './Pages/AboutPage';
-import WritePage from './Pages/WritePage';
-import SearchArticle from './Pages/SearchArticle';
+import React, {useState, useEffect} from 'react'
+
+
+import UserRoutes from "./Routes/userRoutes"
+import AdminRoutes from "./Routes/adminRoutes"
 
 function App() {
+  const [isLoggedIn, setLoggedIn] = useState(true)
   return (
-    <Routes>
-      <Route path ="/" element={<HomePage/>}/>
-      <Route path ="/article/:id" element={<ArticlePage/>}/>
-      <Route path ="/articles" element={<ArticlesPage/>}/>
-      <Route path ="/about" element={<AboutPage/>}/>
-      <Route path ="/submit" element={<WritePage/>}/>
-      <Route path ="/search/:title" element={<SearchArticle/>}/>
-
-
-
-        
-    </Routes>
+    <>
+      {isLoggedIn? <AdminRoutes/> : <UserRoutes/> }
+    </>
   )
 }
 export default App
