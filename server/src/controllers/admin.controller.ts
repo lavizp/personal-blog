@@ -1,11 +1,11 @@
 import {Request,Response}  from "express";
 
 
-import { getAllArticles, getSingleArticle, getUnvalidatedArticles } from "../services/articles.service"
+import { getAllArticles, getSingleArticle, getUnvalidatedArticles,getValidatedArticles } from "../services/articles.service"
 
 
 export const getAllArticlesAdmin = async(req: Request,res: Response) =>{
-    let data = await getAllArticles();
+    let data = await getValidatedArticles();
 
     res.status(200).json(data)
 }

@@ -6,6 +6,7 @@ import AboutPage from '../Pages/AboutPage';
 import WritePage from '../Pages/WritePage';
 import SearchArticle from '../Pages/SearchArticle';
 import AdminPage from '../Pages/Admin/AdminPage';
+import ArticlesPageAdmin from '../Pages/Admin/ArticlesPageAdmin';
 
 function AdminRoutes() {
   return (
@@ -17,6 +18,8 @@ function AdminRoutes() {
     <Route path ="/submit" element={<WritePage/>}/>
     <Route path ="/search/:title" element={<SearchArticle/>}/>
     <Route path ="/admin" element={<AdminPage/>}/>
+    <Route path ="/admin/articles" element={<ArticlesPageAdmin/>}/>
+
 
   </Routes>
   )
