@@ -22,6 +22,7 @@ export const getUnvalidatedArticles = async()=>{
 
 export const getSingleArticle = async(id: string) =>{
     let article = await ArticleModel.findById(id)
-    console.log(article)
-    return article;
+    if(article?.isvalidated){
+        return article;
+    }
 }
