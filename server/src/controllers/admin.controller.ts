@@ -1,7 +1,7 @@
 import {Request,Response}  from "express";
 
 
-import { getAllArticles, getSingleArticle, getUnvalidatedArticles,getValidatedArticles } from "../services/articles.service"
+import { getAllArticles, getSingleArticle,getUnvalidatedSingleArticle, getUnvalidatedArticles,getValidatedArticles } from "../services/articles.service"
 
 
 export const getAllArticlesAdmin = async(req: Request,res: Response) =>{
@@ -17,15 +17,14 @@ export const getUnvalidatedArticlesAdmin = async(req: Request, res: Response)=>{
 
 export const validateArticle = async(req: Request, res: Response) =>{
     let articleId: string = req.params.id;
-    console.log(articleId)
     try{
-        let article = await getSingleArticle(articleId);
+        let article = await getUnvalidatedSingleArticle(articleId);
         if(!article){
             return;
         }
         article.isvalidated = true;
         const newArticle = await article.save();
-        res.status(404).json(newArticle)
+        res.status(200).json(newArticle)
 
     }catch(e){
         console.log(e)
@@ -35,7 +34,6 @@ export const validateArticle = async(req: Request, res: Response) =>{
 }
 export const unValidateArticle = async(req: Request, res: Response) =>{
     let articleId: string = req.params.id;
-    console.log(articleId)
     try{
         let article = await getSingleArticle(articleId);
         if(!article){
@@ -43,7 +41,7 @@ export const unValidateArticle = async(req: Request, res: Response) =>{
         }
         article.isvalidated = false;
         const newArticle = await article.save();
-        res.status(404).json(newArticle)
+        res.status(200).json(newArticle)
 
     }catch(e){
         console.log(e)

@@ -26,3 +26,9 @@ export const getSingleArticle = async(id: string) =>{
         return article;
     }
 }
+
+export const getUnvalidatedSingleArticle = async(id: string) =>{
+    let article = await ArticleModel.findById(id)
+        return article;
+
+}

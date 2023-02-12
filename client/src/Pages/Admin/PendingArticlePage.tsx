@@ -3,12 +3,12 @@ import { useEffect, useState } from "react"
 import AdminArticle from "../../Widgets/Admin/AdminArticle"
 import ArticleType from "../../Interfaces/Article"
 import * as api from "../../api/admin"
-function ArticlesPageAdmin() {
+function PendingArticlePage() {
   const [articles, setArticles] = useState<ArticleType[]>([]);
   useEffect(()=>{
     async function getArticles(){
 
-      let {data} = await api.getArticles();
+      let {data} = await api.getUnvalidatedArticles()
       setArticles(data);
     }
     getArticles();
@@ -17,10 +17,11 @@ function ArticlesPageAdmin() {
     <div>
         <AdminNavbar/>
         <div className="flex justify-center flex-wrap items-center gap-3 gap-y-14 mb-10">
-          {articles.map((item: ArticleType)=> <AdminArticle article={item} isValidated={true} key = {item._id}/>)}
+          {articles.map((item: ArticleType)=> <AdminArticle article={item} isValidated={false} key = {item._id}/>)}
         </div>
     </div>
   )
 }
 
-export default ArticlesPageAdmin
+
+export default PendingArticlePage

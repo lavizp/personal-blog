@@ -7,6 +7,7 @@ import WritePage from '../Pages/WritePage';
 import SearchArticle from '../Pages/SearchArticle';
 import AdminPage from '../Pages/Admin/AdminPage';
 import ArticlesPageAdmin from '../Pages/Admin/ArticlesPageAdmin';
+import PendingArticlePage from '../Pages/Admin/PendingArticlePage';
 
 function AdminRoutes() {
   return (
@@ -19,6 +20,8 @@ function AdminRoutes() {
     <Route path ="/search/:title" element={<SearchArticle/>}/>
     <Route path ="/admin" element={<AdminPage/>}/>
     <Route path ="/admin/articles" element={<ArticlesPageAdmin/>}/>
+    <Route path ="/admin/pending" element={<PendingArticlePage/>}/>
+
 
 
   </Routes>
