@@ -1,32 +1,33 @@
 import { useState, createContext, useContext } from "react"
 type ThemeContextType = {
   currentUser: string,
-  signIn: void
+  signIn:()=> void
 }
-const AuthContext = createContext<ThemeContextType>({currentUser: "user", signIn:()=>{} });
 
+const defaultState = {
+  currentUser: "user",
+  signIn: ()=>{}
+}
+export const AuthContext = createContext<ThemeContextType>(defaultState);
 
 export function useAuth() {
   return useContext(AuthContext);
 }
 
-function AuthProvided({children}: any) {
-  const [currentUser, setCurrentUser] = useState("user");
-  const [isLoading, setIsLoading] = useState(false);
-
-  const signIn = ()=>{
-    setCurrentUser("admin")
-  }
-
-  const value = {
-    currentUser,
-    signIn
-  }
-  return (
-    <AuthContext.Provider value={value}>
-    {!isLoading && children}
-  </AuthContext.Provider>
-  )
+interface Props{
+  children?: React.ReactNode;
 }
 
-export default AuthProvided
+const AuthProvider: React.FC<Props> = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState<string>("user")
+  const signIn = () =>{
+    setCurrentUser("admin")
+  }
+  return (
+    <AuthContext.Provider value={{ currentUser,  signIn }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+export default AuthProvider
