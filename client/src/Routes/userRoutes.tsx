@@ -5,6 +5,7 @@ import ArticlesPage from '../Pages/ArticlesPage';
 import AboutPage from '../Pages/AboutPage';
 import WritePage from '../Pages/WritePage';
 import SearchArticle from '../Pages/SearchArticle';
+import LoginPage from '../Pages/LoginPage';
 
 function UserRoutes() {
   return (
@@ -15,6 +16,8 @@ function UserRoutes() {
     <Route path ="/about" element={<AboutPage/>}/>
     <Route path ="/submit" element={<WritePage/>}/>
     <Route path ="/search/:title" element={<SearchArticle/>}/>
+    <Route path ="/admin" element={<LoginPage/>}/>
+
   </Routes>
   )
 }

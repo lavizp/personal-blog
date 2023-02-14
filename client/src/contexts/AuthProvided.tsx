@@ -1,12 +1,12 @@
 import { useState, createContext, useContext } from "react"
 type ThemeContextType = {
   currentUser: string,
-  signIn:()=> void
+  signIn:(email: string, password:string)=> void
 }
 
 const defaultState = {
   currentUser: "user",
-  signIn: ()=>{}
+  signIn: (email: string, password:string)=>{}
 }
 export const AuthContext = createContext<ThemeContextType>(defaultState);
 
