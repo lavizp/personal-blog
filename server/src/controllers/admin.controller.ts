@@ -49,3 +49,17 @@ export const unValidateArticle = async(req: Request, res: Response) =>{
 
 
 }
+
+export const loginAdmin =async (req: Request, res: Response) => {
+    let email: string = req.body.email;
+    let password: string = req.body.password;
+
+    try{
+        if(email == "laviz@laviz.laviz" && password == "laviz"){
+            res.status(200).send("Login Success")
+        }
+        return;
+    }catch(e){
+        console.log(e)
+    }
+}

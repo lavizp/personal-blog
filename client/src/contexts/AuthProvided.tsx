@@ -1,31 +1,35 @@
-import { useState, createContext, useContext } from "react"
+import { useState, createContext, useContext, useEffect } from "react"
+import * as api from "../api/admin"
+
 type ThemeContextType = {
   currentUser: string,
   signIn:(email: string, password:string)=> void
 }
 
-const defaultState = {
-  currentUser: "user",
-  signIn: (email: string, password:string)=>{}
-}
-export const AuthContext = createContext<ThemeContextType>(defaultState);
+export const AuthContext = createContext<any | null >(null);
 
 export function useAuth() {
   return useContext(AuthContext);
 }
 
-interface Props{
-  children?: React.ReactNode;
-}
-
-const AuthProvider: React.FC<Props> = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState<string>("user")
-  const signIn = () =>{
-    setCurrentUser("admin")
+const AuthProvider = ({ children }: any) => {
+  const [currentUser, setCurrentUser] = useState(null)
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setCurrentUser(null)
+  }, []);
+  const signIn = async(email: string, password:string) =>{
+    let {data} = await api.loginAdmin(email, password)
+    if(data)
+      setCurrentUser(data)
+  }
+  const value: any = {
+    currentUser,
+    signIn
   }
   return (
-    <AuthContext.Provider value={{ currentUser,  signIn }}>
-      {children}
+    <AuthContext.Provider value={value}>
+      {!loading && children}
     </AuthContext.Provider>
   );
 }

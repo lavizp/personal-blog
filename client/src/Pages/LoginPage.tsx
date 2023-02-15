@@ -6,6 +6,7 @@ function LoginPage() {
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
     const handleSubmit = ()=>{
+      if(emailRef.current && passwordRef.current)
         signIn(emailRef.current?.value, passwordRef.current?.value)
     }
   return (
