@@ -5,7 +5,8 @@ function LoginPage() {
     const {signIn} = useAuth();
     const emailRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
-    const handleSubmit = ()=>{
+    const handleSubmit = (e: any)=>{
+      e.preventDefault();
       if(emailRef.current && passwordRef.current)
         signIn(emailRef.current?.value, passwordRef.current?.value)
     }
@@ -53,7 +54,7 @@ function LoginPage() {
             <button
               type="button"
               className="inline-block px-7 py-3 bg-blue-600 text-secondary font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                onClick={()=>handleSubmit()}
+                onClick={(e)=>handleSubmit(e)}
             >
               Login
             </button>
