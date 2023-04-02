@@ -30,6 +30,7 @@ function WritePage() {
 
     }
       const {data} = await api.writeArticle(article);
+      console.log(article)
       navigate("/")
   }
   return (

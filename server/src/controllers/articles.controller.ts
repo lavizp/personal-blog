@@ -29,7 +29,7 @@ export const writeArticle = async(req:Request, res: Response)=>{
     
     try{
         const article = req.body;
-        const newArticle = new ArticleModel()
+        const newArticle = new ArticleModel(article)
         console.log(newArticle)
         await newArticle.save();
         res.status(200).json(newArticle)
