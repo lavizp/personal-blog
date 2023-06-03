@@ -1,2 +1,2 @@
 # personal-blog
-Personal Blog Site using the MERN stack
+Personal Blog Website using the MERN stack
