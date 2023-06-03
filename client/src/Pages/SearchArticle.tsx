@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, lazy} from 'react'
 import * as api from "../api/index"
 import ArticleType from '../Interfaces/Article'
-import ArticleList from '../Components/ArticleList'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
+const ArticleList = lazy(()=> import("../Components/ArticleList"))
 
 import { useParams } from 'react-router-dom'
 import ArticleNotFound from '../Components/ArticleNotFound'

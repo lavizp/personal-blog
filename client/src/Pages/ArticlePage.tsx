@@ -39,11 +39,11 @@ const ArticlePage=()=> {
       <Navbar/>
       
       <div className=' w-full p-10 pt-5'>
-        <h1 className="font-bold text-5xl pb-5">{article?.title}</h1>
         <div className='w-full rounded-xl h-[700px] bg-secondary'>
             <img src={article?.image} className="w-full rounded-xl h-full object-cover opacity-50"></img>
         </div>
-        <h5 className="pt-5 text-lg" dangerouslySetInnerHTML={{__html: article.main}}></h5>
+        <h1 className="font-bold text-5xl pb-5 md:px-40 pt-8">{article?.title}</h1>
+         <p className="pt-4 text-lg md:px-40" dangerouslySetInnerHTML={{__html: article.main}}></p>
     </div>
         <Footer/>
     </>
